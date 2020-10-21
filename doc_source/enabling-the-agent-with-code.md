@@ -10,26 +10,18 @@ To include the agent in your application, you need to tell your build system how
 
 ### Maven<a name="enabling-with-code-maven"></a>
 
-To add a dependency to the agent, add the following sections to your pom\.xml file\. if you already have a `repositories` or `dependencies` element in your POM, add the individual `repositories` or `dependencies` elements inside the existing outer elements\. 
+To add a dependency to the agent, add the following sections to your pom\.xml file\. If you already have a `dependencies` element in your POM, add the individual `dependencies` elements inside the existing outer elements\. 
 
 ```
 <project xmlns="http://maven.apache.org/POM/4.0.0" 
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven- 4.0.0.xsd">
 ...
-    <repositories>
-        <repository>
-            <id>codeguru-profiler</id>
-            <name>codeguru-profiler</name>
-            <url>https://d1osg35nybn3tt.cloudfront.net</url>
-        </repository>
-    </repositories>
-    ... 
     <dependencies>
         <dependency>
-            <groupId>com.amazonaws</groupId>
+            <groupId>software.amazon.codeguruprofiler</groupId>
             <artifactId>codeguru-profiler-java-agent</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.2</version>
         </dependency>
     </dependencies>
 ...
@@ -44,16 +36,14 @@ To add a dependency to the agent, add the following sections to your gradle file
 
 ```
 repositories {
-    maven {
-        url = uri("https://d1osg35nybn3tt.cloudfront.net")
-    }
+    mavenCentral()
 }
 dependencies {
-    implementation("com.amazonaws:codeguru-profiler-java-agent:1.0.0")
+    implementation("software.amazon.codeguruprofiler:codeguru-profiler-java-agent:1.0.2")
 }
 ```
 
-For more information about creating a custom Gradle repository, see [ Declaring a custom repository by URL](https://docs.gradle.org/current/userguide/declaring_repositories.html#sec:declaring_custom_repository)\. For examples, see examples 18 and 19 in [ Supported repository transport protocols](https://docs.gradle.org/current/userguide/declaring_repositories.html#sec:plugin-vs-build-repos)\. 
+For more information about creating a custom Gradle repository, see [Declaring a custom repository by URL](https://docs.gradle.org/current/userguide/declaring_repositories.html#sec:declaring_custom_repository)\. For examples, see examples 18 and 19 in [Supported repository transport protocols](https://docs.gradle.org/current/userguide/declaring_repositories.html#sec:plugin-vs-build-repos)\. 
 
 ## Configuration<a name="enabling-with-code-configuration"></a>
 
